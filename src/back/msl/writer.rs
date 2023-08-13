@@ -3013,6 +3013,7 @@ impl<W: Write> Writer<W> {
             &[],
             &[],
             &mut self.names,
+            true,
         );
         self.struct_member_pads.clear();
 

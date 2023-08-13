@@ -91,6 +91,7 @@ impl<W: Write> Writer<W> {
             &[],
             &["__"],
             &mut self.names,
+            false,
         );
         self.named_expressions.clear();
         self.ep_results.clear();

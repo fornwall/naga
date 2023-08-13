@@ -1,0 +1,36 @@
+// language: metal2.0
+#include <metal_stdlib>
+#include <simd/simd.h>
+
+using metal::uint;
+
+struct Vertex {
+    metal::float4 position;
+};
+struct Offset {
+    metal::float4 position_1;
+};
+struct VertexOutput {
+    metal::float4 position;
+};
+
+struct vs_mainInput {
+    metal::float4 position [[attribute(0)]];
+    metal::float4 position_1 [[attribute(1)]];
+    metal::float4 position [[attribute(2)]];
+};
+struct vs_mainOutput {
+    metal::float4 position [[position]];
+};
+vertex vs_mainOutput vs_main(
+  vs_mainInput varyings [[stage_in]]
+) {
+    const Vertex vertex_ = { varyings.position };
+    const Offset offset = { varyings.position_1 };
+    const auto position = varyings.position;
+    VertexOutput out = {};
+    out.position = (vertex_.position + offset.position_1) + position;
+    VertexOutput _e9 = out;
+    const auto _tmp = _e9;
+    return vs_mainOutput { _tmp.position };
+}

@@ -96,6 +96,7 @@ impl<'a, W: fmt::Write> super::Writer<'a, W> {
             super::keywords::RESERVED_CASE_INSENSITIVE,
             &[],
             &mut self.names,
+            false,
         );
         self.entry_point_io.clear();
         self.named_expressions.clear();

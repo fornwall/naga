@@ -492,6 +492,7 @@ impl<'a, W: Write> Writer<'a, W> {
             &[],
             &["gl_"],
             &mut names,
+            false,
         );
 
         // Build the instance

@@ -140,6 +140,7 @@ impl Namer {
         self.unique = outer;
     }
 
+    #[allow(clippy::too_many_arguments)]
     pub fn reset(
         &mut self,
         module: &crate::Module,
@@ -148,6 +149,7 @@ impl Namer {
         reserved_keywords_case_insensitive: &[&'static str],
         reserved_prefixes: &[&'static str],
         output: &mut FastHashMap<NameKey, String>,
+        varyings_in_global_namespace: bool,
     ) {
         self.reserved_prefixes.clear();
         self.reserved_prefixes.extend(reserved_prefixes.iter());
@@ -169,6 +171,7 @@ impl Namer {
 
         let mut temp = String::new();
 
+        let mut varyings_in_structs = Vec::new();
         for (ty_handle, ty) in module.types.iter() {
             let ty_name = self.call_or(&ty.name, "type");
             output.insert(NameKey::Type(ty_handle), ty_name);
@@ -178,9 +181,15 @@ impl Namer {
                 self.namespace(members.len(), |namer| {
                     for (index, member) in members.iter().enumerate() {
                         let name = namer.call_or(&member.name, "member");
-                        output.insert(NameKey::StructMember(ty_handle, index as u32), name);
+                        if !varyings_in_global_namespace
+                            || !matches!(&member.binding, &Some(crate::Binding::Location { .. }))
+                        {
+                            output.insert(NameKey::StructMember(ty_handle, index as u32), name);
+                        } else {
+                            varyings_in_structs.push((Some(index), ty_handle, member));
+                        }
                     }
-                })
+                });
             }
         }
 
@@ -193,11 +202,28 @@ impl Namer {
                     NameKey::EntryPointArgument(ep_index as _, index as u32),
                     name,
                 );
+                /*
+                if !varyings_in_global_namespace
+                    || !matches!(&arg.binding, &Some(crate::Binding::Location { .. }))
+                {
+                } else {
+                    varyings_in_structs.push((None, ))
+                }
+                */
             }
             for (handle, var) in ep.function.local_variables.iter() {
                 let name = self.call_or(&var.name, "local");
                 output.insert(NameKey::EntryPointLocal(ep_index as _, handle), name);
             }
+        }
+
+        if varyings_in_global_namespace && !varyings_in_structs.is_empty() {
+            self.namespace(varyings_in_structs.len(), |namer| {
+                for &(index, ty_handle, member) in varyings_in_structs.iter() {
+                    let name = namer.call_or(&member.name, "member");
+                    output.insert(NameKey::StructMember(ty_handle, index as u32), name);
+                }
+            });
         }
 
         for (fun_handle, fun) in module.functions.iter() {
