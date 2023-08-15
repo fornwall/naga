@@ -2215,7 +2215,7 @@ impl<'a, W: Write> Writer<'a, W> {
                     // Floats are written using `Debug` instead of `Display` because it always appends the
                     // decimal part even it's zero which is needed for a valid glsl float constant
                     crate::Literal::F64(value) => write!(self.out, "{:?}LF", value)?,
-                    crate::Literal::F32(value) => write!(self.out, "{:?}", value)?,
+                    crate::Literal::F32(value) => write!(self.out, "{:?}", value as f64)?,
                     // Unsigned integers need a `u` at the end
                     //
                     // While `core` doesn't necessarily need it, it's allowed and since `es` needs it we
