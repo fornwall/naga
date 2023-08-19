@@ -69,7 +69,7 @@ FragmentOutput fragment(FragmentInput_fragment fragmentinput_fragment)
     uint sample_index = fragmentinput_fragment.sample_index_1;
     uint sample_mask = fragmentinput_fragment.sample_mask_1;
     uint mask = (sample_mask & (1u << sample_index));
-    float color_1 = (front_facing ? 1.0 : 0.0);
+    float color_1 = select(front_facing, 1.0, 0.0);
     const FragmentOutput fragmentoutput = ConstructFragmentOutput(in_._varying, mask, color_1);
     return fragmentoutput;
 }
