@@ -1,12 +1,5 @@
 name: validation-windows
-on:
-  pull_request:
-    paths:
-      - '.github/workflows/validation-windows.yml'
-      - 'tests/out/hlsl/*.hlsl'
-      - 'tests/out/hlsl/*.ron'
-      - 'xtask/**'
-      - 'hlsl-snapshots/**'
+on: push
 
 jobs:
   validate-windows-dxc:
