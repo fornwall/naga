@@ -3020,11 +3020,11 @@ impl<'a, W: fmt::Write> super::Writer<'a, W> {
                                     self.write_expr(module, arg, func_ctx)?;
                                     write!(self.out, "))")?;
                                 } else {
-                                    write!(self.out, "(")?;
+                                    write!(self.out, "select(")?;
                                     self.write_expr(module, arg, func_ctx)?;
                                     write!(
                                         self.out,
-                                        " < (0){s} ? (0){s} : (31){s} - asint(firstbithigh("
+                                        " < (0){s}, (0){s}, (31){s} - asint(firstbithigh("
                                     )?;
                                     self.write_expr(module, arg, func_ctx)?;
                                     write!(self.out, ")))")?;

@@ -27,6 +27,6 @@ void main()
     int clz_a = (-1 < 0 ? 0 : 31 - asint(firstbithigh(-1)));
     uint clz_b = (31u - firstbithigh(1u));
     int2 _expr58 = (-1).xx;
-    int2 clz_c = (_expr58 < (0).xx ? (0).xx : (31).xx - asint(firstbithigh(_expr58)));
+    int2 clz_c = select(_expr58 < (0).xx, (0).xx, (31).xx - asint(firstbithigh(_expr58)));
     uint2 clz_d = ((31u).xx - firstbithigh((1u).xx));
 }
