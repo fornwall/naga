@@ -563,7 +563,10 @@
                     ),
                     ref_count: 1,
                     assignable_global: None,
-                    ty: Handle(1),
+                    ty: Value(Scalar(
+                        kind: Float,
+                        width: 4,
+                    )),
                 ),
                 (
                     uniformity: (
@@ -684,7 +687,10 @@
                     ),
                     ref_count: 1,
                     assignable_global: None,
-                    ty: Handle(1),
+                    ty: Value(Scalar(
+                        kind: Float,
+                        width: 4,
+                    )),
                 ),
                 (
                     uniformity: (
@@ -693,7 +699,10 @@
                     ),
                     ref_count: 1,
                     assignable_global: None,
-                    ty: Handle(1),
+                    ty: Value(Scalar(
+                        kind: Float,
+                        width: 4,
+                    )),
                 ),
                 (
                     uniformity: (

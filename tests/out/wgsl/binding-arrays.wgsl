@@ -168,5 +168,5 @@ fn main(fragment_in: FragmentIn) -> @location(0) vec4<f32> {
     let v2_ = vec2<f32>((_e314 + vec2<u32>(_e315)));
     let _e319 = v4_;
     let _e326 = v1_;
-    return ((_e319 + vec4<f32>(v2_.x, v2_.y, v2_.x, v2_.y)) + vec4<f32>(_e326));
+    return ((_e319 + vec4<f32>(v2_.x, v2_.y, v2_.x, v2_.y)) + _e326);
 }

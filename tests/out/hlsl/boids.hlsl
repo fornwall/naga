@@ -102,49 +102,49 @@ void main(uint3 global_invocation_id : SV_DispatchThreadID)
     if ((_expr94 > 0)) {
         float2 _expr97 = cMass;
         int _expr98 = cMassCount;
-        float2 _expr102 = vPos;
-        cMass = ((_expr97 / (float(_expr98)).xx) - _expr102);
+        float2 _expr101 = vPos;
+        cMass = ((_expr97 / float(_expr98)) - _expr101);
     }
-    int _expr104 = cVelCount;
-    if ((_expr104 > 0)) {
-        float2 _expr107 = cVel;
-        int _expr108 = cVelCount;
-        cVel = (_expr107 / (float(_expr108)).xx);
+    int _expr103 = cVelCount;
+    if ((_expr103 > 0)) {
+        float2 _expr106 = cVel;
+        int _expr107 = cVelCount;
+        cVel = (_expr106 / float(_expr107));
     }
-    float2 _expr112 = vVel;
-    float2 _expr113 = cMass;
-    float _expr116 = params.rule1Scale;
-    float2 _expr119 = colVel;
-    float _expr122 = params.rule2Scale;
-    float2 _expr125 = cVel;
-    float _expr128 = params.rule3Scale;
-    vVel = (((_expr112 + (_expr113 * _expr116)) + (_expr119 * _expr122)) + (_expr125 * _expr128));
+    float2 _expr110 = vVel;
+    float2 _expr111 = cMass;
+    float _expr114 = params.rule1Scale;
+    float2 _expr117 = colVel;
+    float _expr120 = params.rule2Scale;
+    float2 _expr123 = cVel;
+    float _expr126 = params.rule3Scale;
+    vVel = (((_expr110 + (_expr111 * _expr114)) + (_expr117 * _expr120)) + (_expr123 * _expr126));
+    float2 _expr129 = vVel;
     float2 _expr131 = vVel;
-    float2 _expr133 = vVel;
-    vVel = (normalize(_expr131) * clamp(length(_expr133), 0.0, 0.1));
-    float2 _expr139 = vPos;
-    float2 _expr140 = vVel;
-    float _expr143 = params.deltaT;
-    vPos = (_expr139 + (_expr140 * _expr143));
-    float _expr147 = vPos.x;
-    if ((_expr147 < -1.0)) {
+    vVel = (normalize(_expr129) * clamp(length(_expr131), 0.0, 0.1));
+    float2 _expr137 = vPos;
+    float2 _expr138 = vVel;
+    float _expr141 = params.deltaT;
+    vPos = (_expr137 + (_expr138 * _expr141));
+    float _expr145 = vPos.x;
+    if ((_expr145 < -1.0)) {
         vPos.x = 1.0;
     }
-    float _expr153 = vPos.x;
-    if ((_expr153 > 1.0)) {
+    float _expr151 = vPos.x;
+    if ((_expr151 > 1.0)) {
         vPos.x = -1.0;
     }
-    float _expr159 = vPos.y;
-    if ((_expr159 < -1.0)) {
+    float _expr157 = vPos.y;
+    if ((_expr157 < -1.0)) {
         vPos.y = 1.0;
     }
-    float _expr165 = vPos.y;
-    if ((_expr165 > 1.0)) {
+    float _expr163 = vPos.y;
+    if ((_expr163 > 1.0)) {
         vPos.y = -1.0;
     }
-    float2 _expr174 = vPos;
-    particlesDst.Store2(0+index*16+0, asuint(_expr174));
-    float2 _expr179 = vVel;
-    particlesDst.Store2(8+index*16+0, asuint(_expr179));
+    float2 _expr172 = vPos;
+    particlesDst.Store2(0+index*16+0, asuint(_expr172));
+    float2 _expr177 = vVel;
+    particlesDst.Store2(8+index*16+0, asuint(_expr177));
     return;
 }

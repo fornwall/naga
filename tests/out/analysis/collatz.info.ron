@@ -125,7 +125,10 @@
                     ),
                     ref_count: 1,
                     assignable_global: None,
-                    ty: Handle(1),
+                    ty: Value(Scalar(
+                        kind: Uint,
+                        width: 4,
+                    )),
                 ),
                 (
                     uniformity: (
@@ -179,7 +182,10 @@
                     ),
                     ref_count: 1,
                     assignable_global: None,
-                    ty: Handle(1),
+                    ty: Value(Scalar(
+                        kind: Uint,
+                        width: 4,
+                    )),
                 ),
                 (
                     uniformity: (
@@ -226,24 +232,6 @@
                 (
                     uniformity: (
                         non_uniform_result: Some(2),
-                        requirements: (""),
-                    ),
-                    ref_count: 1,
-                    assignable_global: None,
-                    ty: Handle(1),
-                ),
-                (
-                    uniformity: (
-                        non_uniform_result: Some(4),
-                        requirements: (""),
-                    ),
-                    ref_count: 1,
-                    assignable_global: None,
-                    ty: Handle(1),
-                ),
-                (
-                    uniformity: (
-                        non_uniform_result: None,
                         requirements: (""),
                     ),
                     ref_count: 1,
@@ -261,6 +249,30 @@
                     ref_count: 1,
                     assignable_global: None,
                     ty: Handle(1),
+                ),
+                (
+                    uniformity: (
+                        non_uniform_result: None,
+                        requirements: (""),
+                    ),
+                    ref_count: 1,
+                    assignable_global: None,
+                    ty: Value(Scalar(
+                        kind: Uint,
+                        width: 4,
+                    )),
+                ),
+                (
+                    uniformity: (
+                        non_uniform_result: Some(4),
+                        requirements: (""),
+                    ),
+                    ref_count: 1,
+                    assignable_global: None,
+                    ty: Value(Scalar(
+                        kind: Uint,
+                        width: 4,
+                    )),
                 ),
                 (
                     uniformity: (

@@ -629,19 +629,45 @@ impl super::Validator {
                 let left_inner = &resolver[left];
                 let right_inner = &resolver[right];
                 let good = match op {
-                    Bo::Add | Bo::Subtract => match *left_inner {
-                        Ti::Scalar { kind, .. } | Ti::Vector { kind, .. } => match kind {
-                            Sk::Uint | Sk::Sint | Sk::Float => left_inner == right_inner,
-                            Sk::Bool => false,
-                        },
-                        Ti::Matrix { .. } => left_inner == right_inner,
+                    Bo::Add | Bo::Subtract => match (left_inner, right_inner) {
+                        (
+                            Ti::Scalar {
+                                kind: kind_left, ..
+                            }
+                            | Ti::Vector {
+                                kind: kind_left, ..
+                            },
+                            Ti::Scalar {
+                                kind: kind_right, ..
+                            }
+                            | Ti::Vector {
+                                kind: kind_right, ..
+                            },
+                        ) if kind_left == kind_right => true,
+                        (Ti::Matrix { .. }, _) => left_inner == right_inner,
+                        // TODO: lhs and rhs, matrix?
                         _ => false,
                     },
-                    Bo::Divide | Bo::Modulo => match *left_inner {
+                    Bo::Divide | Bo::Modulo => match (left_inner, right_inner) {
+                        /*
                         Ti::Scalar { kind, .. } | Ti::Vector { kind, .. } => match kind {
                             Sk::Uint | Sk::Sint | Sk::Float => left_inner == right_inner,
                             Sk::Bool => false,
-                        },
+                        }, */
+                        (
+                            Ti::Scalar {
+                                kind: kind_left, ..
+                            }
+                            | Ti::Vector {
+                                kind: kind_left, ..
+                            },
+                            Ti::Scalar {
+                                kind: kind_right, ..
+                            }
+                            | Ti::Vector {
+                                kind: kind_right, ..
+                            },
+                        ) if kind_left == kind_right => true,
                         _ => false,
                     },
                     Bo::Multiply => {

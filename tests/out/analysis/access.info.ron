@@ -105,7 +105,10 @@
                     ),
                     ref_count: 1,
                     assignable_global: None,
-                    ty: Handle(3),
+                    ty: Value(Scalar(
+                        kind: Sint,
+                        width: 4,
+                    )),
                 ),
                 (
                     uniformity: (
@@ -736,7 +739,10 @@
                     ),
                     ref_count: 1,
                     assignable_global: None,
-                    ty: Handle(3),
+                    ty: Value(Scalar(
+                        kind: Sint,
+                        width: 4,
+                    )),
                 ),
                 (
                     uniformity: (
@@ -1323,7 +1329,10 @@
                     ),
                     ref_count: 1,
                     assignable_global: None,
-                    ty: Handle(3),
+                    ty: Value(Scalar(
+                        kind: Sint,
+                        width: 4,
+                    )),
                 ),
                 (
                     uniformity: (
@@ -2080,7 +2089,10 @@
                     ),
                     ref_count: 1,
                     assignable_global: None,
-                    ty: Handle(3),
+                    ty: Value(Scalar(
+                        kind: Sint,
+                        width: 4,
+                    )),
                 ),
                 (
                     uniformity: (
@@ -3606,7 +3618,10 @@
                     ),
                     ref_count: 1,
                     assignable_global: None,
-                    ty: Handle(1),
+                    ty: Value(Scalar(
+                        kind: Uint,
+                        width: 4,
+                    )),
                 ),
                 (
                     uniformity: (

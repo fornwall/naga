@@ -516,13 +516,7 @@ impl<'source, 'temp, 'out> ExpressionContext<'source, 'temp, 'out> {
         left: &mut Handle<crate::Expression>,
         right: &mut Handle<crate::Expression>,
     ) -> Result<(), Error<'source>> {
-        if matches!(
-            op,
-            crate::BinaryOperator::Add
-                | crate::BinaryOperator::Subtract
-                | crate::BinaryOperator::Divide
-                | crate::BinaryOperator::Modulo
-        ) {
+        if matches!(op, crate::BinaryOperator::Modulo) {
             self.grow_types(*left)?.grow_types(*right)?;
 
             match (self.resolved_inner(*left), self.resolved_inner(*right)) {

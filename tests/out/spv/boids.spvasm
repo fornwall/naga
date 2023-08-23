@@ -1,7 +1,7 @@
 ; SPIR-V
 ; Version: 1.0
 ; Generator: rspirv
-; Bound: 209
+; Bound: 207
 OpCapability Shader
 OpExtension "SPV_KHR_storage_buffer_storage_class"
 %1 = OpExtInstImport "GLSL.std.450"
@@ -102,10 +102,10 @@ OpDecorate %36 BuiltIn GlobalInvocationId
 %88 = OpTypePointer Uniform %5
 %102 = OpConstant  %3  2
 %116 = OpConstant  %3  3
-%151 = OpConstant  %3  4
-%157 = OpConstant  %3  5
-%163 = OpConstant  %3  6
-%180 = OpTypePointer Function %5
+%149 = OpConstant  %3  4
+%155 = OpConstant  %3  5
+%161 = OpConstant  %3  6
+%178 = OpTypePointer Function %5
 %39 = OpFunction  %2  None %40
 %35 = OpLabel
 %32 = OpVariable  %33  Function %34
@@ -239,102 +239,100 @@ OpBranchConditional %130 %132 %131
 %133 = OpLoad  %4  %23
 %134 = OpLoad  %11  %26
 %135 = OpConvertSToF  %5  %134
-%136 = OpCompositeConstruct  %4  %135 %135
-%137 = OpFDiv  %4  %133 %136
-%138 = OpLoad  %4  %19
-%139 = OpFSub  %4  %137 %138
-OpStore %23 %139
+%136 = OpFDiv  %4  %133 %135
+%137 = OpLoad  %4  %19
+%138 = OpFSub  %4  %136 %137
+OpStore %23 %138
 OpBranch %131
 %131 = OpLabel
-%140 = OpLoad  %11  %29
-%141 = OpSGreaterThan  %53  %140 %45
-OpSelectionMerge %142 None
-OpBranchConditional %141 %143 %142
-%143 = OpLabel
-%144 = OpLoad  %4  %24
-%145 = OpLoad  %11  %29
-%146 = OpConvertSToF  %5  %145
-%147 = OpCompositeConstruct  %4  %146 %146
-%148 = OpFDiv  %4  %144 %147
-OpStore %24 %148
-OpBranch %142
+%139 = OpLoad  %11  %29
+%140 = OpSGreaterThan  %53  %139 %45
+OpSelectionMerge %141 None
+OpBranchConditional %140 %142 %141
 %142 = OpLabel
-%149 = OpLoad  %4  %22
-%150 = OpLoad  %4  %23
-%152 = OpAccessChain  %88  %43 %151
-%153 = OpLoad  %5  %152
-%154 = OpVectorTimesScalar  %4  %150 %153
-%155 = OpFAdd  %4  %149 %154
-%156 = OpLoad  %4  %25
-%158 = OpAccessChain  %88  %43 %157
-%159 = OpLoad  %5  %158
-%160 = OpVectorTimesScalar  %4  %156 %159
-%161 = OpFAdd  %4  %155 %160
-%162 = OpLoad  %4  %24
-%164 = OpAccessChain  %88  %43 %163
-%165 = OpLoad  %5  %164
-%166 = OpVectorTimesScalar  %4  %162 %165
-%167 = OpFAdd  %4  %161 %166
-OpStore %22 %167
+%143 = OpLoad  %4  %24
+%144 = OpLoad  %11  %29
+%145 = OpConvertSToF  %5  %144
+%146 = OpFDiv  %4  %143 %145
+OpStore %24 %146
+OpBranch %141
+%141 = OpLabel
+%147 = OpLoad  %4  %22
+%148 = OpLoad  %4  %23
+%150 = OpAccessChain  %88  %43 %149
+%151 = OpLoad  %5  %150
+%152 = OpVectorTimesScalar  %4  %148 %151
+%153 = OpFAdd  %4  %147 %152
+%154 = OpLoad  %4  %25
+%156 = OpAccessChain  %88  %43 %155
+%157 = OpLoad  %5  %156
+%158 = OpVectorTimesScalar  %4  %154 %157
+%159 = OpFAdd  %4  %153 %158
+%160 = OpLoad  %4  %24
+%162 = OpAccessChain  %88  %43 %161
+%163 = OpLoad  %5  %162
+%164 = OpVectorTimesScalar  %4  %160 %163
+%165 = OpFAdd  %4  %159 %164
+OpStore %22 %165
+%166 = OpLoad  %4  %22
+%167 = OpExtInst  %4  %1 Normalize %166
 %168 = OpLoad  %4  %22
-%169 = OpExtInst  %4  %1 Normalize %168
-%170 = OpLoad  %4  %22
-%171 = OpExtInst  %5  %1 Length %170
-%172 = OpExtInst  %5  %1 FClamp %171 %44 %48
-%173 = OpVectorTimesScalar  %4  %169 %172
-OpStore %22 %173
-%174 = OpLoad  %4  %19
-%175 = OpLoad  %4  %22
-%176 = OpAccessChain  %88  %43 %42
-%177 = OpLoad  %5  %176
-%178 = OpVectorTimesScalar  %4  %175 %177
-%179 = OpFAdd  %4  %174 %178
-OpStore %19 %179
-%181 = OpAccessChain  %180  %19 %42
-%182 = OpLoad  %5  %181
-%183 = OpFOrdLessThan  %53  %182 %49
-OpSelectionMerge %184 None
-OpBranchConditional %183 %185 %184
-%185 = OpLabel
-%186 = OpAccessChain  %180  %19 %42
-OpStore %186 %50
-OpBranch %184
-%184 = OpLabel
-%187 = OpAccessChain  %180  %19 %42
-%188 = OpLoad  %5  %187
-%189 = OpFOrdGreaterThan  %53  %188 %50
-OpSelectionMerge %190 None
-OpBranchConditional %189 %191 %190
-%191 = OpLabel
-%192 = OpAccessChain  %180  %19 %42
-OpStore %192 %49
-OpBranch %190
-%190 = OpLabel
-%193 = OpAccessChain  %180  %19 %47
-%194 = OpLoad  %5  %193
-%195 = OpFOrdLessThan  %53  %194 %49
-OpSelectionMerge %196 None
-OpBranchConditional %195 %197 %196
-%197 = OpLabel
-%198 = OpAccessChain  %180  %19 %47
-OpStore %198 %50
-OpBranch %196
-%196 = OpLabel
-%199 = OpAccessChain  %180  %19 %47
-%200 = OpLoad  %5  %199
-%201 = OpFOrdGreaterThan  %53  %200 %50
-OpSelectionMerge %202 None
-OpBranchConditional %201 %203 %202
-%203 = OpLabel
-%204 = OpAccessChain  %180  %19 %47
-OpStore %204 %49
-OpBranch %202
-%202 = OpLabel
-%205 = OpLoad  %4  %19
-%206 = OpAccessChain  %59  %18 %42 %52 %42
+%169 = OpExtInst  %5  %1 Length %168
+%170 = OpExtInst  %5  %1 FClamp %169 %44 %48
+%171 = OpVectorTimesScalar  %4  %167 %170
+OpStore %22 %171
+%172 = OpLoad  %4  %19
+%173 = OpLoad  %4  %22
+%174 = OpAccessChain  %88  %43 %42
+%175 = OpLoad  %5  %174
+%176 = OpVectorTimesScalar  %4  %173 %175
+%177 = OpFAdd  %4  %172 %176
+OpStore %19 %177
+%179 = OpAccessChain  %178  %19 %42
+%180 = OpLoad  %5  %179
+%181 = OpFOrdLessThan  %53  %180 %49
+OpSelectionMerge %182 None
+OpBranchConditional %181 %183 %182
+%183 = OpLabel
+%184 = OpAccessChain  %178  %19 %42
+OpStore %184 %50
+OpBranch %182
+%182 = OpLabel
+%185 = OpAccessChain  %178  %19 %42
+%186 = OpLoad  %5  %185
+%187 = OpFOrdGreaterThan  %53  %186 %50
+OpSelectionMerge %188 None
+OpBranchConditional %187 %189 %188
+%189 = OpLabel
+%190 = OpAccessChain  %178  %19 %42
+OpStore %190 %49
+OpBranch %188
+%188 = OpLabel
+%191 = OpAccessChain  %178  %19 %47
+%192 = OpLoad  %5  %191
+%193 = OpFOrdLessThan  %53  %192 %49
+OpSelectionMerge %194 None
+OpBranchConditional %193 %195 %194
+%195 = OpLabel
+%196 = OpAccessChain  %178  %19 %47
+OpStore %196 %50
+OpBranch %194
+%194 = OpLabel
+%197 = OpAccessChain  %178  %19 %47
+%198 = OpLoad  %5  %197
+%199 = OpFOrdGreaterThan  %53  %198 %50
+OpSelectionMerge %200 None
+OpBranchConditional %199 %201 %200
+%201 = OpLabel
+%202 = OpAccessChain  %178  %19 %47
+OpStore %202 %49
+OpBranch %200
+%200 = OpLabel
+%203 = OpLoad  %4  %19
+%204 = OpAccessChain  %59  %18 %42 %52 %42
+OpStore %204 %203
+%205 = OpLoad  %4  %22
+%206 = OpAccessChain  %59  %18 %42 %52 %47
 OpStore %206 %205
-%207 = OpLoad  %4  %22
-%208 = OpAccessChain  %59  %18 %42 %52 %47
-OpStore %208 %207
 OpReturn
 OpFunctionEnd
