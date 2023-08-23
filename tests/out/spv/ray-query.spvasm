@@ -82,7 +82,7 @@ OpBranch %28
 %31 = OpMatrixTimesVector  %5  %29 %30
 %32 = OpVectorShuffle  %8  %31 %31 0 1
 %33 = OpExtInst  %8  %1 Normalize %32
-%35 = OpCompositeConstruct  %33  %26 %26
+%35 = OpCompositeConstruct  %8  %26 %26
 %34 = OpVectorTimesScalar  %8  %33 %35
 %36 = OpCompositeExtract  %10  %22 9
 %37 = OpCompositeConstruct  %12  %34 %27 %25
@@ -145,7 +145,7 @@ OpBranch %64
 %90 = OpAccessChain  %86  %49 %48
 OpStore %90 %89
 %92 = OpCompositeExtract  %6  %85 1
-%94 = OpCompositeConstruct  %55  %92 %92 %92
+%94 = OpCompositeConstruct  %5  %92 %92 %92
 %93 = OpVectorTimesScalar  %5  %55 %94
 %95 = OpFunctionCall  %5  %23 %93 %85
 %96 = OpAccessChain  %91  %49 %73

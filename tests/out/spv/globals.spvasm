@@ -184,10 +184,10 @@ OpStore %80 %70
 %89 = OpCompositeExtract  %8  %81 0
 %90 = OpMatrixTimesVector  %8  %71 %89
 %91 = OpCompositeExtract  %8  %81 0
-%93 = OpCompositeConstruct  %91  %69 %69 %69
+%93 = OpCompositeConstruct  %8  %69 %69 %69
 %92 = OpVectorTimesScalar  %8  %91 %93
 %94 = OpCompositeExtract  %8  %81 0
-%96 = OpCompositeConstruct  %94  %69 %69 %69
+%96 = OpCompositeConstruct  %8  %69 %69 %69
 %95 = OpVectorTimesScalar  %8  %94 %96
 OpReturn
 OpFunctionEnd

@@ -476,7 +476,7 @@ impl<'w> BlockContext<'w> {
                         let components = [value_id; 4];
                         let id = self.gen_id();
                         block.body.push(Instruction::composite_construct(
-                            self.cached[left],
+                            result_type_id,
                             id,
                             &components[..size as usize],
                         ));
@@ -487,7 +487,7 @@ impl<'w> BlockContext<'w> {
                         let components = [value_id; 4];
                         let id = self.gen_id();
                         block.body.push(Instruction::composite_construct(
-                            self.cached[right],
+                            result_type_id,
                             id,
                             &components[..size as usize],
                         ));

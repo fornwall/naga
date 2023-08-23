@@ -239,7 +239,7 @@ OpBranchConditional %130 %132 %131
 %133 = OpLoad  %4  %23
 %134 = OpLoad  %11  %26
 %135 = OpConvertSToF  %5  %134
-%137 = OpCompositeConstruct  %133  %135 %135
+%137 = OpCompositeConstruct  %4  %135 %135
 %136 = OpFDiv  %4  %133 %137
 %138 = OpLoad  %4  %19
 %139 = OpFSub  %4  %136 %138
@@ -254,7 +254,7 @@ OpBranchConditional %141 %143 %142
 %144 = OpLoad  %4  %24
 %145 = OpLoad  %11  %29
 %146 = OpConvertSToF  %5  %145
-%148 = OpCompositeConstruct  %144  %146 %146
+%148 = OpCompositeConstruct  %4  %146 %146
 %147 = OpFDiv  %4  %144 %148
 OpStore %24 %147
 OpBranch %142
@@ -263,19 +263,19 @@ OpBranch %142
 %150 = OpLoad  %4  %23
 %152 = OpAccessChain  %88  %43 %151
 %153 = OpLoad  %5  %152
-%155 = OpCompositeConstruct  %150  %153 %153
+%155 = OpCompositeConstruct  %4  %153 %153
 %154 = OpVectorTimesScalar  %4  %150 %155
 %156 = OpFAdd  %4  %149 %154
 %157 = OpLoad  %4  %25
 %159 = OpAccessChain  %88  %43 %158
 %160 = OpLoad  %5  %159
-%162 = OpCompositeConstruct  %157  %160 %160
+%162 = OpCompositeConstruct  %4  %160 %160
 %161 = OpVectorTimesScalar  %4  %157 %162
 %163 = OpFAdd  %4  %156 %161
 %164 = OpLoad  %4  %24
 %166 = OpAccessChain  %88  %43 %165
 %167 = OpLoad  %5  %166
-%169 = OpCompositeConstruct  %164  %167 %167
+%169 = OpCompositeConstruct  %4  %167 %167
 %168 = OpVectorTimesScalar  %4  %164 %169
 %170 = OpFAdd  %4  %163 %168
 OpStore %22 %170
@@ -284,14 +284,14 @@ OpStore %22 %170
 %173 = OpLoad  %4  %22
 %174 = OpExtInst  %5  %1 Length %173
 %175 = OpExtInst  %5  %1 FClamp %174 %44 %48
-%177 = OpCompositeConstruct  %172  %175 %175
+%177 = OpCompositeConstruct  %4  %175 %175
 %176 = OpVectorTimesScalar  %4  %172 %177
 OpStore %22 %176
 %178 = OpLoad  %4  %19
 %179 = OpLoad  %4  %22
 %180 = OpAccessChain  %88  %43 %42
 %181 = OpLoad  %5  %180
-%183 = OpCompositeConstruct  %179  %181 %181
+%183 = OpCompositeConstruct  %4  %181 %181
 %182 = OpVectorTimesScalar  %4  %179 %183
 %184 = OpFAdd  %4  %178 %182
 OpStore %19 %184

@@ -214,7 +214,7 @@ OpReturnValue %49
 %60 = OpFDiv  %5  %49 %59
 %61 = OpVectorShuffle  %21  %43 %43 0 1
 %62 = OpFMul  %21  %61 %58
-%64 = OpCompositeConstruct  %62  %60 %60
+%64 = OpCompositeConstruct  %21  %60 %60
 %63 = OpVectorTimesScalar  %21  %62 %64
 %65 = OpCompositeConstruct  %21  %50 %50
 %66 = OpFAdd  %21  %63 %65
@@ -329,7 +329,7 @@ OpBranch %172
 %191 = OpFMul  %5  %182 %190
 %192 = OpCompositeExtract  %4  %177 2
 %193 = OpVectorShuffle  %10  %192 %192 0 1 2
-%195 = OpCompositeConstruct  %193  %191 %191 %191
+%195 = OpCompositeConstruct  %10  %191 %191 %191
 %194 = OpVectorTimesScalar  %10  %193 %195
 %196 = OpLoad  %10  %133
 %197 = OpFAdd  %10  %196 %194
@@ -406,7 +406,7 @@ OpBranch %238
 %257 = OpFMul  %5  %248 %256
 %258 = OpCompositeExtract  %4  %243 2
 %259 = OpVectorShuffle  %10  %258 %258 0 1 2
-%261 = OpCompositeConstruct  %259  %257 %257 %257
+%261 = OpCompositeConstruct  %10  %257 %257 %257
 %260 = OpVectorTimesScalar  %10  %259 %261
 %262 = OpLoad  %10  %206
 %263 = OpFAdd  %10  %262 %260
