@@ -470,30 +470,40 @@ impl<'w> BlockContext<'w> {
                 let left_ty_inner = self.fun_info[left].ty.inner_with(&self.ir_module.types);
                 let right_ty_inner = self.fun_info[right].ty.inner_with(&self.ir_module.types);
 
-                let (left_id, right_id) = match (left_ty_inner, right_ty_inner) {
-                    (&crate::TypeInner::Vector { size, .. }, &crate::TypeInner::Scalar { .. }) => {
-                        let value_id = self.cached[right];
-                        let components = [value_id; 4];
-                        let id = self.gen_id();
-                        block.body.push(Instruction::composite_construct(
-                            result_type_id,
-                            id,
-                            &components[..size as usize],
-                        ));
-                        (left_id, id)
+                let (left_id, right_id) = if matches!(op, crate::BinaryOperator::Multiply) {
+                    (left_id, right_id)
+                } else {
+                    match (left_ty_inner, right_ty_inner) {
+                        (
+                            &crate::TypeInner::Vector { size, .. },
+                            &crate::TypeInner::Scalar { .. },
+                        ) => {
+                            let value_id = self.cached[right];
+                            let components = [value_id; 4];
+                            let id = self.gen_id();
+                            block.body.push(Instruction::composite_construct(
+                                result_type_id,
+                                id,
+                                &components[..size as usize],
+                            ));
+                            (left_id, id)
+                        }
+                        (
+                            &crate::TypeInner::Scalar { .. },
+                            &crate::TypeInner::Vector { size, .. },
+                        ) => {
+                            let value_id = self.cached[left];
+                            let components = [value_id; 4];
+                            let id = self.gen_id();
+                            block.body.push(Instruction::composite_construct(
+                                result_type_id,
+                                id,
+                                &components[..size as usize],
+                            ));
+                            (id, right_id)
+                        }
+                        _ => (left_id, right_id),
                     }
-                    (&crate::TypeInner::Scalar { .. }, &crate::TypeInner::Vector { size, .. }) => {
-                        let value_id = self.cached[left];
-                        let components = [value_id; 4];
-                        let id = self.gen_id();
-                        block.body.push(Instruction::composite_construct(
-                            result_type_id,
-                            id,
-                            &components[..size as usize],
-                        ));
-                        (id, right_id)
-                    }
-                    _ => (left_id, right_id),
                 };
 
                 let left_dimension = get_dimension(left_ty_inner);
