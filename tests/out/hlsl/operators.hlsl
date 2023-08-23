@@ -19,7 +19,7 @@ float4 builtins()
 float4 splat()
 {
     float2 a_2 = (((1.0 + (2.0).xx) - 3.0) / 4.0);
-    int4 b = ((5).xxxx % (2).xxxx);
+    int4 b = ((5).xxxx % 2);
     return (a_2.xyxy + float4(b));
 }
 
@@ -115,12 +115,12 @@ void arithmetic()
         uint2 div3_1 = (2u / (1u).xx);
         float2 div4_1 = ((2.0).xx / 1.0);
         float2 div5_1 = (2.0 / (1.0).xx);
-        int2 rem0_1 = ((2).xx % (1).xx);
-        int2 rem1_1 = ((2).xx % (1).xx);
-        uint2 rem2_1 = ((2u).xx % (1u).xx);
-        uint2 rem3_1 = ((2u).xx % (1u).xx);
-        float2 rem4_1 = fmod((2.0).xx, (1.0).xx);
-        float2 rem5_1 = fmod((2.0).xx, (1.0).xx);
+        int2 rem0_1 = ((2).xx % 1);
+        int2 rem1_1 = (2 % (1).xx);
+        uint2 rem2_1 = ((2u).xx % 1u);
+        uint2 rem3_1 = (2u % (1u).xx);
+        float2 rem4_1 = fmod((2.0).xx, 1.0);
+        float2 rem5_1 = fmod(2.0, (1.0).xx);
     }
     float3x3 add = ((float3x3)0 + (float3x3)0);
     float3x3 sub = ((float3x3)0 - (float3x3)0);

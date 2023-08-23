@@ -398,7 +398,7 @@ fn binary_expression_mixed_scalar_and_vector_operands() {
         ('-', false),
         ('*', false),
         ('/', false),
-        ('%', true),
+        ('%', false),
     ] {
         let module = parse_str(&format!(
             "

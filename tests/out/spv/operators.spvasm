@@ -109,10 +109,10 @@ OpBranch %60
 %67 = OpCompositeConstruct  %9  %57 %57
 %66 = OpFDiv  %9  %64 %67
 %68 = OpCompositeConstruct  %5  %58 %58 %58 %58
-%69 = OpCompositeConstruct  %5  %59 %59 %59 %59
-%70 = OpSRem  %5  %68 %69
+%70 = OpCompositeConstruct  %5  %59 %59 %59 %59
+%69 = OpSRem  %5  %68 %70
 %71 = OpVectorShuffle  %3  %66 %66 0 1 0 1
-%72 = OpConvertSToF  %3  %70
+%72 = OpConvertSToF  %3  %69
 %73 = OpFAdd  %3  %71 %72
 OpReturnValue %73
 OpFunctionEnd
@@ -307,23 +307,23 @@ OpBranch %195
 %267 = OpCompositeConstruct  %9  %55 %55
 %266 = OpFDiv  %9  %267 %265
 %268 = OpCompositeConstruct  %129  %59 %59
-%269 = OpCompositeConstruct  %129  %22 %22
-%270 = OpSRem  %129  %268 %269
+%270 = OpCompositeConstruct  %129  %22 %22
+%269 = OpSRem  %129  %268 %270
 %271 = OpCompositeConstruct  %129  %22 %22
-%272 = OpCompositeConstruct  %129  %59 %59
-%273 = OpSRem  %129  %272 %271
+%273 = OpCompositeConstruct  %129  %59 %59
+%272 = OpSRem  %129  %273 %271
 %274 = OpCompositeConstruct  %203  %123 %123
-%275 = OpCompositeConstruct  %203  %124 %124
-%276 = OpUMod  %203  %274 %275
+%276 = OpCompositeConstruct  %203  %124 %124
+%275 = OpUMod  %203  %274 %276
 %277 = OpCompositeConstruct  %203  %124 %124
-%278 = OpCompositeConstruct  %203  %123 %123
-%279 = OpUMod  %203  %278 %277
+%279 = OpCompositeConstruct  %203  %123 %123
+%278 = OpUMod  %203  %279 %277
 %280 = OpCompositeConstruct  %9  %55 %55
-%281 = OpCompositeConstruct  %9  %16 %16
-%282 = OpFRem  %9  %280 %281
+%282 = OpCompositeConstruct  %9  %16 %16
+%281 = OpFRem  %9  %280 %282
 %283 = OpCompositeConstruct  %9  %16 %16
-%284 = OpCompositeConstruct  %9  %55 %55
-%285 = OpFRem  %9  %284 %283
+%285 = OpCompositeConstruct  %9  %55 %55
+%284 = OpFRem  %9  %285 %283
 OpBranch %196
 %196 = OpLabel
 %287 = OpCompositeExtract  %10  %125 0

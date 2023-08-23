@@ -25,7 +25,7 @@ vec4 builtins() {
 
 vec4 splat() {
     vec2 a_2 = (((1.0 + vec2(2.0)) - 3.0) / 4.0);
-    ivec4 b = (ivec4(5) % ivec4(2));
+    ivec4 b = (ivec4(5) % 2);
     return (a_2.xyxy + vec4(b));
 }
 
@@ -116,12 +116,12 @@ void arithmetic() {
         uvec2 div3_1 = (2u / uvec2(1u));
         vec2 div4_1 = (vec2(2.0) / 1.0);
         vec2 div5_1 = (2.0 / vec2(1.0));
-        ivec2 rem0_1 = (ivec2(2) % ivec2(1));
-        ivec2 rem1_1 = (ivec2(2) % ivec2(1));
-        uvec2 rem2_1 = (uvec2(2u) % uvec2(1u));
-        uvec2 rem3_1 = (uvec2(2u) % uvec2(1u));
-        vec2 rem4_1 = (vec2(2.0) - vec2(1.0) * trunc(vec2(2.0) / vec2(1.0)));
-        vec2 rem5_1 = (vec2(2.0) - vec2(1.0) * trunc(vec2(2.0) / vec2(1.0)));
+        ivec2 rem0_1 = (ivec2(2) % 1);
+        ivec2 rem1_1 = (2 % ivec2(1));
+        uvec2 rem2_1 = (uvec2(2u) % 1u);
+        uvec2 rem3_1 = (2u % uvec2(1u));
+        vec2 rem4_1 = (vec2(2.0) - 1.0 * trunc(vec2(2.0) / 1.0));
+        vec2 rem5_1 = (2.0 - vec2(1.0) * trunc(2.0 / vec2(1.0)));
     }
     mat3x3 add = (mat3x3(0.0) + mat3x3(0.0));
     mat3x3 sub = (mat3x3(0.0) - mat3x3(0.0));

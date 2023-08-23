@@ -17,7 +17,7 @@ fn builtins() -> vec4<f32> {
 
 fn splat() -> vec4<f32> {
     let a_2 = (((1.0 + vec2<f32>(2.0)) - 3.0) / 4.0);
-    let b = (vec4<i32>(5) % vec4<i32>(2));
+    let b = (vec4<i32>(5) % 2);
     return (a_2.xyxy + vec4<f32>(b));
 }
 
@@ -109,12 +109,12 @@ fn arithmetic() {
         let div3_1 = (2u / vec2<u32>(1u));
         let div4_1 = (vec2<f32>(2.0) / 1.0);
         let div5_1 = (2.0 / vec2<f32>(1.0));
-        let rem0_1 = (vec2<i32>(2) % vec2<i32>(1));
-        let rem1_1 = (vec2<i32>(2) % vec2<i32>(1));
-        let rem2_1 = (vec2<u32>(2u) % vec2<u32>(1u));
-        let rem3_1 = (vec2<u32>(2u) % vec2<u32>(1u));
-        let rem4_1 = (vec2<f32>(2.0) % vec2<f32>(1.0));
-        let rem5_1 = (vec2<f32>(2.0) % vec2<f32>(1.0));
+        let rem0_1 = (vec2<i32>(2) % 1);
+        let rem1_1 = (2 % vec2<i32>(1));
+        let rem2_1 = (vec2<u32>(2u) % 1u);
+        let rem3_1 = (2u % vec2<u32>(1u));
+        let rem4_1 = (vec2<f32>(2.0) % 1.0);
+        let rem5_1 = (2.0 % vec2<f32>(1.0));
     }
     let add = (mat3x3<f32>() + mat3x3<f32>());
     let sub = (mat3x3<f32>() - mat3x3<f32>());
