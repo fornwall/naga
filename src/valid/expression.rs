@@ -631,16 +631,16 @@ impl super::Validator {
                 let good = match op {
                     Bo::Add | Bo::Subtract => match (left_inner, right_inner) {
                         (
-                            Ti::Scalar {
+                            &Ti::Scalar {
                                 kind: kind_left, ..
                             }
-                            | Ti::Vector {
+                            | &Ti::Vector {
                                 kind: kind_left, ..
                             },
-                            Ti::Scalar {
+                            &Ti::Scalar {
                                 kind: kind_right, ..
                             }
-                            | Ti::Vector {
+                            | &Ti::Vector {
                                 kind: kind_right, ..
                             },
                         ) if kind_left == kind_right => true,
@@ -655,16 +655,16 @@ impl super::Validator {
                             Sk::Bool => false,
                         }, */
                         (
-                            Ti::Scalar {
+                            &Ti::Scalar {
                                 kind: kind_left, ..
                             }
-                            | Ti::Vector {
+                            | &Ti::Vector {
                                 kind: kind_left, ..
                             },
-                            Ti::Scalar {
+                            &Ti::Scalar {
                                 kind: kind_right, ..
                             }
-                            | Ti::Vector {
+                            | &Ti::Vector {
                                 kind: kind_right, ..
                             },
                         ) if kind_left == kind_right => true,

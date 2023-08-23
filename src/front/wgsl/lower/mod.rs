@@ -503,45 +503,6 @@ impl<'source, 'temp, 'out> ExpressionContext<'source, 'temp, 'out> {
         }
     }
 
-    /// Insert splats, if needed by the non-'*' operations.
-    ///
-    /// See the "Binary arithmetic expressions with mixed scalar and vector operands"
-    /// table in the WebGPU Shading Language specification for relevant operators.
-    ///
-    /// Multiply is not handled here as backends are expected to handle vec*scalar
-    /// operations, so inserting splats into the IR increases size needlessly.
-    fn binary_op_splat(
-        &mut self,
-        op: crate::BinaryOperator,
-        left: &mut Handle<crate::Expression>,
-        right: &mut Handle<crate::Expression>,
-    ) -> Result<(), Error<'source>> {
-        if false && matches!(op, crate::BinaryOperator::Modulo) {
-            self.grow_types(*left)?.grow_types(*right)?;
-
-            match (self.resolved_inner(*left), self.resolved_inner(*right)) {
-                (&crate::TypeInner::Vector { size, .. }, &crate::TypeInner::Scalar { .. }) => {
-                    *right = self.append_expression(
-                        crate::Expression::Splat {
-                            size,
-                            value: *right,
-                        },
-                        self.get_expression_span(*right),
-                    );
-                }
-                (&crate::TypeInner::Scalar { .. }, &crate::TypeInner::Vector { size, .. }) => {
-                    *left = self.append_expression(
-                        crate::Expression::Splat { size, value: *left },
-                        self.get_expression_span(*left),
-                    );
-                }
-                _ => {}
-            }
-        }
-
-        Ok(())
-    }
-
     /// Add a single expression to the expression table that is not covered by `self.emitter`.
     ///
     /// This is useful for `CallResult` and `AtomicResult` expressions, which should not be covered by
@@ -1231,7 +1192,7 @@ impl<'source, 'temp> Lowerer<'source, 'temp> {
 
                 let expr =
                     self.expression_for_reference(target, ctx.as_expression(block, &mut emitter))?;
-                let mut value = self.expression(value, ctx.as_expression(block, &mut emitter))?;
+                let value = self.expression(value, ctx.as_expression(block, &mut emitter))?;
 
                 if !expr.is_reference {
                     let ty = ctx.invalid_assignment_type(expr.handle);
@@ -1245,8 +1206,7 @@ impl<'source, 'temp> Lowerer<'source, 'temp> {
                 let value = match op {
                     Some(op) => {
                         let mut ctx = ctx.as_expression(block, &mut emitter);
-                        let mut left = ctx.apply_load_rule(expr);
-                        ctx.binary_op_splat(op, &mut left, &mut value)?;
+                        let left = ctx.apply_load_rule(expr);
                         ctx.append_expression(
                             crate::Expression::Binary {
                                 op,
@@ -1438,9 +1398,8 @@ impl<'source, 'temp> Lowerer<'source, 'temp> {
             }
             ast::Expression::Binary { op, left, right } => {
                 // Load both operands.
-                let mut left = self.expression(left, ctx.reborrow())?;
-                let mut right = self.expression(right, ctx.reborrow())?;
-                ctx.binary_op_splat(op, &mut left, &mut right)?;
+                let left = self.expression(left, ctx.reborrow())?;
+                let right = self.expression(right, ctx.reborrow())?;
                 (crate::Expression::Binary { op, left, right }, false)
             }
             ast::Expression::Call {
