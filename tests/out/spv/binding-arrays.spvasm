@@ -553,8 +553,8 @@ OpBranch %415
 %427 = OpCompositeConstruct  %22  %423 %424 %425 %426
 %428 = OpFAdd  %22  %422 %427
 %429 = OpLoad  %6  %55
-%430 = OpCompositeConstruct  %22  %429 %429 %429 %429
-%431 = OpFAdd  %22  %428 %430
-OpStore %66 %431
+%431 = OpCompositeConstruct  %22  %429 %429 %429 %429
+%430 = OpFAdd  %22  %428 %431
+OpStore %66 %430
 OpReturn
 OpFunctionEnd

@@ -12,12 +12,12 @@ fn builtins() -> vec4<f32> {
     let b1_ = bitcast<f32>(v_i32_one.x);
     let b2_ = bitcast<vec4<f32>>(v_i32_one);
     let v_i32_zero = vec4<i32>(v_f32_zero);
-    return (((((vec4<f32>((vec4<i32>(s1_) + v_i32_zero)) + s2_) + m1_) + m2_) + vec4<f32>(b1_)) + b2_);
+    return (((((vec4<f32>((vec4<i32>(s1_) + v_i32_zero)) + s2_) + m1_) + m2_) + b1_) + b2_);
 }
 
 fn splat() -> vec4<f32> {
-    let a_2 = (((vec2<f32>(1.0) + vec2<f32>(2.0)) - vec2<f32>(3.0)) / vec2<f32>(4.0));
-    let b = (vec4<i32>(5) % vec4<i32>(2));
+    let a_2 = (((1.0 + vec2<f32>(2.0)) - 3.0) / 4.0);
+    let b = (vec4<i32>(5) % 2);
     return (a_2.xyxy + vec4<f32>(b));
 }
 
@@ -26,13 +26,13 @@ fn splat_assignment() -> vec2<f32> {
 
     a = vec2<f32>(2.0);
     let _e4 = a;
-    a = (_e4 + vec2<f32>(1.0));
-    let _e8 = a;
-    a = (_e8 - vec2<f32>(3.0));
+    a = (_e4 + 1.0);
+    let _e7 = a;
+    a = (_e7 - 3.0);
+    let _e10 = a;
+    a = (_e10 / 4.0);
     let _e12 = a;
-    a = (_e12 / vec2<f32>(4.0));
-    let _e15 = a;
-    return _e15;
+    return _e12;
 }
 
 fn bool_cast(x: vec3<f32>) -> vec3<f32> {
@@ -85,36 +85,36 @@ fn arithmetic() {
     let rem4_ = (vec3<u32>(2u) % vec3<u32>(1u));
     let rem5_ = (vec4<f32>(2.0) % vec4<f32>(1.0));
     {
-        let add0_1 = (vec2<i32>(2) + vec2<i32>(1));
-        let add1_1 = (vec2<i32>(2) + vec2<i32>(1));
-        let add2_1 = (vec2<u32>(2u) + vec2<u32>(1u));
-        let add3_1 = (vec2<u32>(2u) + vec2<u32>(1u));
-        let add4_1 = (vec2<f32>(2.0) + vec2<f32>(1.0));
-        let add5_1 = (vec2<f32>(2.0) + vec2<f32>(1.0));
-        let sub0_1 = (vec2<i32>(2) - vec2<i32>(1));
-        let sub1_1 = (vec2<i32>(2) - vec2<i32>(1));
-        let sub2_1 = (vec2<u32>(2u) - vec2<u32>(1u));
-        let sub3_1 = (vec2<u32>(2u) - vec2<u32>(1u));
-        let sub4_1 = (vec2<f32>(2.0) - vec2<f32>(1.0));
-        let sub5_1 = (vec2<f32>(2.0) - vec2<f32>(1.0));
+        let add0_1 = (vec2<i32>(2) + 1);
+        let add1_1 = (2 + vec2<i32>(1));
+        let add2_1 = (vec2<u32>(2u) + 1u);
+        let add3_1 = (2u + vec2<u32>(1u));
+        let add4_1 = (vec2<f32>(2.0) + 1.0);
+        let add5_1 = (2.0 + vec2<f32>(1.0));
+        let sub0_1 = (vec2<i32>(2) - 1);
+        let sub1_1 = (2 - vec2<i32>(1));
+        let sub2_1 = (vec2<u32>(2u) - 1u);
+        let sub3_1 = (2u - vec2<u32>(1u));
+        let sub4_1 = (vec2<f32>(2.0) - 1.0);
+        let sub5_1 = (2.0 - vec2<f32>(1.0));
         let mul0_1 = (vec2<i32>(2) * 1);
         let mul1_1 = (2 * vec2<i32>(1));
         let mul2_1 = (vec2<u32>(2u) * 1u);
         let mul3_1 = (2u * vec2<u32>(1u));
         let mul4_1 = (vec2<f32>(2.0) * 1.0);
         let mul5_1 = (2.0 * vec2<f32>(1.0));
-        let div0_1 = (vec2<i32>(2) / vec2<i32>(1));
-        let div1_1 = (vec2<i32>(2) / vec2<i32>(1));
-        let div2_1 = (vec2<u32>(2u) / vec2<u32>(1u));
-        let div3_1 = (vec2<u32>(2u) / vec2<u32>(1u));
-        let div4_1 = (vec2<f32>(2.0) / vec2<f32>(1.0));
-        let div5_1 = (vec2<f32>(2.0) / vec2<f32>(1.0));
-        let rem0_1 = (vec2<i32>(2) % vec2<i32>(1));
-        let rem1_1 = (vec2<i32>(2) % vec2<i32>(1));
-        let rem2_1 = (vec2<u32>(2u) % vec2<u32>(1u));
-        let rem3_1 = (vec2<u32>(2u) % vec2<u32>(1u));
-        let rem4_1 = (vec2<f32>(2.0) % vec2<f32>(1.0));
-        let rem5_1 = (vec2<f32>(2.0) % vec2<f32>(1.0));
+        let div0_1 = (vec2<i32>(2) / 1);
+        let div1_1 = (2 / vec2<i32>(1));
+        let div2_1 = (vec2<u32>(2u) / 1u);
+        let div3_1 = (2u / vec2<u32>(1u));
+        let div4_1 = (vec2<f32>(2.0) / 1.0);
+        let div5_1 = (2.0 / vec2<f32>(1.0));
+        let rem0_1 = (vec2<i32>(2) % 1);
+        let rem1_1 = (2 % vec2<i32>(1));
+        let rem2_1 = (vec2<u32>(2u) % 1u);
+        let rem3_1 = (2u % vec2<u32>(1u));
+        let rem4_1 = (vec2<f32>(2.0) % 1.0);
+        let rem5_1 = (2.0 % vec2<f32>(1.0));
     }
     let add = (mat3x3<f32>() + mat3x3<f32>());
     let sub = (mat3x3<f32>() - mat3x3<f32>());

@@ -20,12 +20,12 @@ vec4 builtins() {
     float b1_ = intBitsToFloat(v_i32_one.x);
     vec4 b2_ = intBitsToFloat(v_i32_one);
     ivec4 v_i32_zero = ivec4(v_f32_zero);
-    return (((((vec4((ivec4(s1_) + v_i32_zero)) + s2_) + m1_) + m2_) + vec4(b1_)) + b2_);
+    return (((((vec4((ivec4(s1_) + v_i32_zero)) + s2_) + m1_) + m2_) + b1_) + b2_);
 }
 
 vec4 splat() {
-    vec2 a_2 = (((vec2(1.0) + vec2(2.0)) - vec2(3.0)) / vec2(4.0));
-    ivec4 b = (ivec4(5) % ivec4(2));
+    vec2 a_2 = (((1.0 + vec2(2.0)) - 3.0) / 4.0);
+    ivec4 b = (ivec4(5) % 2);
     return (a_2.xyxy + vec4(b));
 }
 
@@ -33,13 +33,13 @@ vec2 splat_assignment() {
     vec2 a = vec2(0.0);
     a = vec2(2.0);
     vec2 _e4 = a;
-    a = (_e4 + vec2(1.0));
-    vec2 _e8 = a;
-    a = (_e8 - vec2(3.0));
+    a = (_e4 + 1.0);
+    vec2 _e7 = a;
+    a = (_e7 - 3.0);
+    vec2 _e10 = a;
+    a = (_e10 / 4.0);
     vec2 _e12 = a;
-    a = (_e12 / vec2(4.0));
-    vec2 _e15 = a;
-    return _e15;
+    return _e12;
 }
 
 vec3 bool_cast(vec3 x) {
@@ -92,36 +92,36 @@ void arithmetic() {
     uvec3 rem4_ = (uvec3(2u) % uvec3(1u));
     vec4 rem5_ = (vec4(2.0) - vec4(1.0) * trunc(vec4(2.0) / vec4(1.0)));
     {
-        ivec2 add0_1 = (ivec2(2) + ivec2(1));
-        ivec2 add1_1 = (ivec2(2) + ivec2(1));
-        uvec2 add2_1 = (uvec2(2u) + uvec2(1u));
-        uvec2 add3_1 = (uvec2(2u) + uvec2(1u));
-        vec2 add4_1 = (vec2(2.0) + vec2(1.0));
-        vec2 add5_1 = (vec2(2.0) + vec2(1.0));
-        ivec2 sub0_1 = (ivec2(2) - ivec2(1));
-        ivec2 sub1_1 = (ivec2(2) - ivec2(1));
-        uvec2 sub2_1 = (uvec2(2u) - uvec2(1u));
-        uvec2 sub3_1 = (uvec2(2u) - uvec2(1u));
-        vec2 sub4_1 = (vec2(2.0) - vec2(1.0));
-        vec2 sub5_1 = (vec2(2.0) - vec2(1.0));
+        ivec2 add0_1 = (ivec2(2) + 1);
+        ivec2 add1_1 = (2 + ivec2(1));
+        uvec2 add2_1 = (uvec2(2u) + 1u);
+        uvec2 add3_1 = (2u + uvec2(1u));
+        vec2 add4_1 = (vec2(2.0) + 1.0);
+        vec2 add5_1 = (2.0 + vec2(1.0));
+        ivec2 sub0_1 = (ivec2(2) - 1);
+        ivec2 sub1_1 = (2 - ivec2(1));
+        uvec2 sub2_1 = (uvec2(2u) - 1u);
+        uvec2 sub3_1 = (2u - uvec2(1u));
+        vec2 sub4_1 = (vec2(2.0) - 1.0);
+        vec2 sub5_1 = (2.0 - vec2(1.0));
         ivec2 mul0_1 = (ivec2(2) * 1);
         ivec2 mul1_1 = (2 * ivec2(1));
         uvec2 mul2_1 = (uvec2(2u) * 1u);
         uvec2 mul3_1 = (2u * uvec2(1u));
         vec2 mul4_1 = (vec2(2.0) * 1.0);
         vec2 mul5_1 = (2.0 * vec2(1.0));
-        ivec2 div0_1 = (ivec2(2) / ivec2(1));
-        ivec2 div1_1 = (ivec2(2) / ivec2(1));
-        uvec2 div2_1 = (uvec2(2u) / uvec2(1u));
-        uvec2 div3_1 = (uvec2(2u) / uvec2(1u));
-        vec2 div4_1 = (vec2(2.0) / vec2(1.0));
-        vec2 div5_1 = (vec2(2.0) / vec2(1.0));
-        ivec2 rem0_1 = (ivec2(2) % ivec2(1));
-        ivec2 rem1_1 = (ivec2(2) % ivec2(1));
-        uvec2 rem2_1 = (uvec2(2u) % uvec2(1u));
-        uvec2 rem3_1 = (uvec2(2u) % uvec2(1u));
-        vec2 rem4_1 = (vec2(2.0) - vec2(1.0) * trunc(vec2(2.0) / vec2(1.0)));
-        vec2 rem5_1 = (vec2(2.0) - vec2(1.0) * trunc(vec2(2.0) / vec2(1.0)));
+        ivec2 div0_1 = (ivec2(2) / 1);
+        ivec2 div1_1 = (2 / ivec2(1));
+        uvec2 div2_1 = (uvec2(2u) / 1u);
+        uvec2 div3_1 = (2u / uvec2(1u));
+        vec2 div4_1 = (vec2(2.0) / 1.0);
+        vec2 div5_1 = (2.0 / vec2(1.0));
+        ivec2 rem0_1 = (ivec2(2) % 1);
+        ivec2 rem1_1 = (2 % ivec2(1));
+        uvec2 rem2_1 = (uvec2(2u) % 1u);
+        uvec2 rem3_1 = (2u % uvec2(1u));
+        vec2 rem4_1 = (vec2(2.0) - 1.0 * trunc(vec2(2.0) / 1.0));
+        vec2 rem5_1 = (2.0 - vec2(1.0) * trunc(2.0 / vec2(1.0)));
     }
     mat3x3 add = (mat3x3(0.0) + mat3x3(0.0));
     mat3x3 sub = (mat3x3(0.0) - mat3x3(0.0));

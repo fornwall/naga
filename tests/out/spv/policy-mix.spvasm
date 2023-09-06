@@ -139,16 +139,16 @@ OpBranch %76
 %88 = OpExtInst  %7  %1 UMin %44 %87
 %89 = OpAccessChain  %86  %34 %88
 %90 = OpLoad  %4  %89
-%91 = OpCompositeConstruct  %3  %90 %90 %90 %90
-%92 = OpFAdd  %3  %85 %91
+%92 = OpCompositeConstruct  %3  %90 %90 %90 %90
+%91 = OpFAdd  %3  %85 %92
 %95 = OpExtInst  %7  %1 UMin %44 %94
 %96 = OpAccessChain  %93  %36 %95
 %97 = OpLoad  %4  %96
-%98 = OpCompositeConstruct  %3  %97 %97 %97 %97
-%99 = OpFAdd  %3  %92 %98
+%99 = OpCompositeConstruct  %3  %97 %97 %97 %97
+%98 = OpFAdd  %3  %91 %99
 %102 = OpExtInst  %7  %1 UMin %44 %101
 %103 = OpAccessChain  %100  %39 %102
 %104 = OpLoad  %3  %103
-%105 = OpFAdd  %3  %99 %104
+%105 = OpFAdd  %3  %98 %104
 OpReturnValue %105
 OpFunctionEnd

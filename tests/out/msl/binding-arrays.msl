@@ -170,5 +170,5 @@ fragment main_Output main_(
     metal::float2 v2_ = static_cast<metal::float2>(_e314 + metal::uint2(_e315));
     metal::float4 _e319 = v4_;
     float _e326 = v1_;
-    return main_Output { (_e319 + metal::float4(v2_.x, v2_.y, v2_.x, v2_.y)) + metal::float4(_e326) };
+    return main_Output { (_e319 + metal::float4(v2_.x, v2_.y, v2_.x, v2_.y)) + _e326 };
 }

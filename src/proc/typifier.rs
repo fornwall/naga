@@ -560,7 +560,15 @@ impl<'a> ResolveContext<'a> {
                 crate::BinaryOperator::Add
                 | crate::BinaryOperator::Subtract
                 | crate::BinaryOperator::Divide
-                | crate::BinaryOperator::Modulo => past(left)?.clone(),
+                | crate::BinaryOperator::Modulo => {
+                    let (res_left, res_right) = (past(left)?, past(right)?);
+                    match (res_left.inner_with(types), res_right.inner_with(types)) {
+                        (&Ti::Scalar { .. }, _) => res_right.clone(),
+                        (_, &Ti::Scalar { .. }) => res_left.clone(),
+                        (&Ti::Vector { .. }, &Ti::Vector { .. }) => res_left.clone(),
+                        _ => past(left)?.clone(),
+                    }
+                }
                 crate::BinaryOperator::Multiply => {
                     let (res_left, res_right) = (past(left)?, past(right)?);
                     match (res_left.inner_with(types), res_right.inner_with(types)) {

@@ -180,5 +180,5 @@ float4 main(FragmentInput_main fragmentinput_main) : SV_Target0
     float2 v2_ = float2((_expr314 + (_expr315).xx));
     float4 _expr319 = v4_;
     float _expr326 = v1_;
-    return ((_expr319 + float4(v2_.x, v2_.y, v2_.x, v2_.y)) + (_expr326).xxxx);
+    return ((_expr319 + float4(v2_.x, v2_.y, v2_.x, v2_.y)) + _expr326);
 }

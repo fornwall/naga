@@ -690,8 +690,8 @@ OpBranch %514
 %518 = OpCompositeExtract  %7  %517 0
 %519 = OpSampledImage  %429  %513 %512
 %520 = OpImageGather  %25  %519 %515 %201
-%521 = OpCompositeConstruct  %25  %518 %518 %518 %518
-%522 = OpFAdd  %25  %521 %520
-OpStore %510 %522
+%522 = OpCompositeConstruct  %25  %518 %518 %518 %518
+%521 = OpFAdd  %25  %522 %520
+OpStore %510 %521
 OpReturn
 OpFunctionEnd

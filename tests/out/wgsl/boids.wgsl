@@ -106,49 +106,49 @@ fn main(@builtin(global_invocation_id) global_invocation_id: vec3<u32>) {
     if (_e94 > 0) {
         let _e97 = cMass;
         let _e98 = cMassCount;
-        let _e102 = vPos;
-        cMass = ((_e97 / vec2<f32>(f32(_e98))) - _e102);
+        let _e101 = vPos;
+        cMass = ((_e97 / f32(_e98)) - _e101);
     }
-    let _e104 = cVelCount;
-    if (_e104 > 0) {
-        let _e107 = cVel;
-        let _e108 = cVelCount;
-        cVel = (_e107 / vec2<f32>(f32(_e108)));
+    let _e103 = cVelCount;
+    if (_e103 > 0) {
+        let _e106 = cVel;
+        let _e107 = cVelCount;
+        cVel = (_e106 / f32(_e107));
     }
-    let _e112 = vVel;
-    let _e113 = cMass;
-    let _e116 = params.rule1Scale;
-    let _e119 = colVel;
-    let _e122 = params.rule2Scale;
-    let _e125 = cVel;
-    let _e128 = params.rule3Scale;
-    vVel = (((_e112 + (_e113 * _e116)) + (_e119 * _e122)) + (_e125 * _e128));
+    let _e110 = vVel;
+    let _e111 = cMass;
+    let _e114 = params.rule1Scale;
+    let _e117 = colVel;
+    let _e120 = params.rule2Scale;
+    let _e123 = cVel;
+    let _e126 = params.rule3Scale;
+    vVel = (((_e110 + (_e111 * _e114)) + (_e117 * _e120)) + (_e123 * _e126));
+    let _e129 = vVel;
     let _e131 = vVel;
-    let _e133 = vVel;
-    vVel = (normalize(_e131) * clamp(length(_e133), 0.0, 0.1));
-    let _e139 = vPos;
-    let _e140 = vVel;
-    let _e143 = params.deltaT;
-    vPos = (_e139 + (_e140 * _e143));
-    let _e147 = vPos.x;
-    if (_e147 < -1.0) {
+    vVel = (normalize(_e129) * clamp(length(_e131), 0.0, 0.1));
+    let _e137 = vPos;
+    let _e138 = vVel;
+    let _e141 = params.deltaT;
+    vPos = (_e137 + (_e138 * _e141));
+    let _e145 = vPos.x;
+    if (_e145 < -1.0) {
         vPos.x = 1.0;
     }
-    let _e153 = vPos.x;
-    if (_e153 > 1.0) {
+    let _e151 = vPos.x;
+    if (_e151 > 1.0) {
         vPos.x = -1.0;
     }
-    let _e159 = vPos.y;
-    if (_e159 < -1.0) {
+    let _e157 = vPos.y;
+    if (_e157 < -1.0) {
         vPos.y = 1.0;
     }
-    let _e165 = vPos.y;
-    if (_e165 > 1.0) {
+    let _e163 = vPos.y;
+    if (_e163 > 1.0) {
         vPos.y = -1.0;
     }
-    let _e174 = vPos;
-    particlesDst.particles[index].pos = _e174;
-    let _e179 = vVel;
-    particlesDst.particles[index].vel = _e179;
+    let _e172 = vPos;
+    particlesDst.particles[index].pos = _e172;
+    let _e177 = vVel;
+    particlesDst.particles[index].vel = _e177;
     return;
 }

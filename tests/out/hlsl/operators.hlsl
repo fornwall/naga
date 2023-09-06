@@ -13,13 +13,13 @@ float4 builtins()
     float b1_ = asfloat(v_i32_one.x);
     float4 b2_ = asfloat(v_i32_one);
     int4 v_i32_zero = int4(v_f32_zero);
-    return (((((float4(((s1_).xxxx + v_i32_zero)) + s2_) + m1_) + m2_) + (b1_).xxxx) + b2_);
+    return (((((float4(((s1_).xxxx + v_i32_zero)) + s2_) + m1_) + m2_) + b1_) + b2_);
 }
 
 float4 splat()
 {
-    float2 a_2 = ((((1.0).xx + (2.0).xx) - (3.0).xx) / (4.0).xx);
-    int4 b = ((5).xxxx % (2).xxxx);
+    float2 a_2 = (((1.0 + (2.0).xx) - 3.0) / 4.0);
+    int4 b = ((5).xxxx % 2);
     return (a_2.xyxy + float4(b));
 }
 
@@ -29,13 +29,13 @@ float2 splat_assignment()
 
     a = (2.0).xx;
     float2 _expr4 = a;
-    a = (_expr4 + (1.0).xx);
-    float2 _expr8 = a;
-    a = (_expr8 - (3.0).xx);
+    a = (_expr4 + 1.0);
+    float2 _expr7 = a;
+    a = (_expr7 - 3.0);
+    float2 _expr10 = a;
+    a = (_expr10 / 4.0);
     float2 _expr12 = a;
-    a = (_expr12 / (4.0).xx);
-    float2 _expr15 = a;
-    return _expr15;
+    return _expr12;
 }
 
 float3 bool_cast(float3 x)
@@ -91,36 +91,36 @@ void arithmetic()
     uint3 rem4_ = ((2u).xxx % (1u).xxx);
     float4 rem5_ = fmod((2.0).xxxx, (1.0).xxxx);
     {
-        int2 add0_1 = ((2).xx + (1).xx);
-        int2 add1_1 = ((2).xx + (1).xx);
-        uint2 add2_1 = ((2u).xx + (1u).xx);
-        uint2 add3_1 = ((2u).xx + (1u).xx);
-        float2 add4_1 = ((2.0).xx + (1.0).xx);
-        float2 add5_1 = ((2.0).xx + (1.0).xx);
-        int2 sub0_1 = ((2).xx - (1).xx);
-        int2 sub1_1 = ((2).xx - (1).xx);
-        uint2 sub2_1 = ((2u).xx - (1u).xx);
-        uint2 sub3_1 = ((2u).xx - (1u).xx);
-        float2 sub4_1 = ((2.0).xx - (1.0).xx);
-        float2 sub5_1 = ((2.0).xx - (1.0).xx);
+        int2 add0_1 = ((2).xx + 1);
+        int2 add1_1 = (2 + (1).xx);
+        uint2 add2_1 = ((2u).xx + 1u);
+        uint2 add3_1 = (2u + (1u).xx);
+        float2 add4_1 = ((2.0).xx + 1.0);
+        float2 add5_1 = (2.0 + (1.0).xx);
+        int2 sub0_1 = ((2).xx - 1);
+        int2 sub1_1 = (2 - (1).xx);
+        uint2 sub2_1 = ((2u).xx - 1u);
+        uint2 sub3_1 = (2u - (1u).xx);
+        float2 sub4_1 = ((2.0).xx - 1.0);
+        float2 sub5_1 = (2.0 - (1.0).xx);
         int2 mul0_1 = ((2).xx * 1);
         int2 mul1_1 = (2 * (1).xx);
         uint2 mul2_1 = ((2u).xx * 1u);
         uint2 mul3_1 = (2u * (1u).xx);
         float2 mul4_1 = ((2.0).xx * 1.0);
         float2 mul5_1 = (2.0 * (1.0).xx);
-        int2 div0_1 = ((2).xx / (1).xx);
-        int2 div1_1 = ((2).xx / (1).xx);
-        uint2 div2_1 = ((2u).xx / (1u).xx);
-        uint2 div3_1 = ((2u).xx / (1u).xx);
-        float2 div4_1 = ((2.0).xx / (1.0).xx);
-        float2 div5_1 = ((2.0).xx / (1.0).xx);
-        int2 rem0_1 = ((2).xx % (1).xx);
-        int2 rem1_1 = ((2).xx % (1).xx);
-        uint2 rem2_1 = ((2u).xx % (1u).xx);
-        uint2 rem3_1 = ((2u).xx % (1u).xx);
-        float2 rem4_1 = fmod((2.0).xx, (1.0).xx);
-        float2 rem5_1 = fmod((2.0).xx, (1.0).xx);
+        int2 div0_1 = ((2).xx / 1);
+        int2 div1_1 = (2 / (1).xx);
+        uint2 div2_1 = ((2u).xx / 1u);
+        uint2 div3_1 = (2u / (1u).xx);
+        float2 div4_1 = ((2.0).xx / 1.0);
+        float2 div5_1 = (2.0 / (1.0).xx);
+        int2 rem0_1 = ((2).xx % 1);
+        int2 rem1_1 = (2 % (1).xx);
+        uint2 rem2_1 = ((2u).xx % 1u);
+        uint2 rem3_1 = (2u % (1u).xx);
+        float2 rem4_1 = fmod((2.0).xx, 1.0);
+        float2 rem5_1 = fmod(2.0, (1.0).xx);
     }
     float3x3 add = ((float3x3)0 + (float3x3)0);
     float3x3 sub = ((float3x3)0 - (float3x3)0);

@@ -19,13 +19,13 @@ metal::float4 builtins(
     float b1_ = as_type<float>(v_i32_one.x);
     metal::float4 b2_ = as_type<metal::float4>(v_i32_one);
     metal::int4 v_i32_zero = static_cast<metal::int4>(v_f32_zero);
-    return ((((static_cast<metal::float4>(metal::int4(s1_) + v_i32_zero) + s2_) + m1_) + m2_) + metal::float4(b1_)) + b2_;
+    return ((((static_cast<metal::float4>(metal::int4(s1_) + v_i32_zero) + s2_) + m1_) + m2_) + b1_) + b2_;
 }
 
 metal::float4 splat(
 ) {
-    metal::float2 a_2 = ((metal::float2(1.0) + metal::float2(2.0)) - metal::float2(3.0)) / metal::float2(4.0);
-    metal::int4 b = metal::int4(5) % metal::int4(2);
+    metal::float2 a_2 = ((1.0 + metal::float2(2.0)) - 3.0) / 4.0;
+    metal::int4 b = metal::int4(5) % 2;
     return a_2.xyxy + static_cast<metal::float4>(b);
 }
 
@@ -34,13 +34,13 @@ metal::float2 splat_assignment(
     metal::float2 a = {};
     a = metal::float2(2.0);
     metal::float2 _e4 = a;
-    a = _e4 + metal::float2(1.0);
-    metal::float2 _e8 = a;
-    a = _e8 - metal::float2(3.0);
+    a = _e4 + 1.0;
+    metal::float2 _e7 = a;
+    a = _e7 - 3.0;
+    metal::float2 _e10 = a;
+    a = _e10 / 4.0;
     metal::float2 _e12 = a;
-    a = _e12 / metal::float2(4.0);
-    metal::float2 _e15 = a;
-    return _e15;
+    return _e12;
 }
 
 metal::float3 bool_cast(
@@ -97,36 +97,36 @@ void arithmetic(
     metal::uint3 rem4_ = metal::uint3(2u) % metal::uint3(1u);
     metal::float4 rem5_ = metal::fmod(metal::float4(2.0), metal::float4(1.0));
     {
-        metal::int2 add0_1 = metal::int2(2) + metal::int2(1);
-        metal::int2 add1_1 = metal::int2(2) + metal::int2(1);
-        metal::uint2 add2_1 = metal::uint2(2u) + metal::uint2(1u);
-        metal::uint2 add3_1 = metal::uint2(2u) + metal::uint2(1u);
-        metal::float2 add4_1 = metal::float2(2.0) + metal::float2(1.0);
-        metal::float2 add5_1 = metal::float2(2.0) + metal::float2(1.0);
-        metal::int2 sub0_1 = metal::int2(2) - metal::int2(1);
-        metal::int2 sub1_1 = metal::int2(2) - metal::int2(1);
-        metal::uint2 sub2_1 = metal::uint2(2u) - metal::uint2(1u);
-        metal::uint2 sub3_1 = metal::uint2(2u) - metal::uint2(1u);
-        metal::float2 sub4_1 = metal::float2(2.0) - metal::float2(1.0);
-        metal::float2 sub5_1 = metal::float2(2.0) - metal::float2(1.0);
+        metal::int2 add0_1 = metal::int2(2) + 1;
+        metal::int2 add1_1 = 2 + metal::int2(1);
+        metal::uint2 add2_1 = metal::uint2(2u) + 1u;
+        metal::uint2 add3_1 = 2u + metal::uint2(1u);
+        metal::float2 add4_1 = metal::float2(2.0) + 1.0;
+        metal::float2 add5_1 = 2.0 + metal::float2(1.0);
+        metal::int2 sub0_1 = metal::int2(2) - 1;
+        metal::int2 sub1_1 = 2 - metal::int2(1);
+        metal::uint2 sub2_1 = metal::uint2(2u) - 1u;
+        metal::uint2 sub3_1 = 2u - metal::uint2(1u);
+        metal::float2 sub4_1 = metal::float2(2.0) - 1.0;
+        metal::float2 sub5_1 = 2.0 - metal::float2(1.0);
         metal::int2 mul0_1 = metal::int2(2) * 1;
         metal::int2 mul1_1 = 2 * metal::int2(1);
         metal::uint2 mul2_1 = metal::uint2(2u) * 1u;
         metal::uint2 mul3_1 = 2u * metal::uint2(1u);
         metal::float2 mul4_1 = metal::float2(2.0) * 1.0;
         metal::float2 mul5_1 = 2.0 * metal::float2(1.0);
-        metal::int2 div0_1 = metal::int2(2) / metal::int2(1);
-        metal::int2 div1_1 = metal::int2(2) / metal::int2(1);
-        metal::uint2 div2_1 = metal::uint2(2u) / metal::uint2(1u);
-        metal::uint2 div3_1 = metal::uint2(2u) / metal::uint2(1u);
-        metal::float2 div4_1 = metal::float2(2.0) / metal::float2(1.0);
-        metal::float2 div5_1 = metal::float2(2.0) / metal::float2(1.0);
-        metal::int2 rem0_1 = metal::int2(2) % metal::int2(1);
-        metal::int2 rem1_1 = metal::int2(2) % metal::int2(1);
-        metal::uint2 rem2_1 = metal::uint2(2u) % metal::uint2(1u);
-        metal::uint2 rem3_1 = metal::uint2(2u) % metal::uint2(1u);
-        metal::float2 rem4_1 = metal::fmod(metal::float2(2.0), metal::float2(1.0));
-        metal::float2 rem5_1 = metal::fmod(metal::float2(2.0), metal::float2(1.0));
+        metal::int2 div0_1 = metal::int2(2) / 1;
+        metal::int2 div1_1 = 2 / metal::int2(1);
+        metal::uint2 div2_1 = metal::uint2(2u) / 1u;
+        metal::uint2 div3_1 = 2u / metal::uint2(1u);
+        metal::float2 div4_1 = metal::float2(2.0) / 1.0;
+        metal::float2 div5_1 = 2.0 / metal::float2(1.0);
+        metal::int2 rem0_1 = metal::int2(2) % 1;
+        metal::int2 rem1_1 = 2 % metal::int2(1);
+        metal::uint2 rem2_1 = metal::uint2(2u) % 1u;
+        metal::uint2 rem3_1 = 2u % metal::uint2(1u);
+        metal::float2 rem4_1 = metal::fmod(metal::float2(2.0), 1.0);
+        metal::float2 rem5_1 = metal::fmod(2.0, metal::float2(1.0));
     }
     metal::float3x3 add = metal::float3x3 {} + metal::float3x3 {};
     metal::float3x3 sub = metal::float3x3 {} - metal::float3x3 {};

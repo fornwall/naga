@@ -239,10 +239,10 @@ OpBranchConditional %130 %132 %131
 %133 = OpLoad  %4  %23
 %134 = OpLoad  %11  %26
 %135 = OpConvertSToF  %5  %134
-%136 = OpCompositeConstruct  %4  %135 %135
-%137 = OpFDiv  %4  %133 %136
+%137 = OpCompositeConstruct  %4  %135 %135
+%136 = OpFDiv  %4  %133 %137
 %138 = OpLoad  %4  %19
-%139 = OpFSub  %4  %137 %138
+%139 = OpFSub  %4  %136 %138
 OpStore %23 %139
 OpBranch %131
 %131 = OpLabel
@@ -254,9 +254,9 @@ OpBranchConditional %141 %143 %142
 %144 = OpLoad  %4  %24
 %145 = OpLoad  %11  %29
 %146 = OpConvertSToF  %5  %145
-%147 = OpCompositeConstruct  %4  %146 %146
-%148 = OpFDiv  %4  %144 %147
-OpStore %24 %148
+%148 = OpCompositeConstruct  %4  %146 %146
+%147 = OpFDiv  %4  %144 %148
+OpStore %24 %147
 OpBranch %142
 %142 = OpLabel
 %149 = OpLoad  %4  %22
